@@ -33,7 +33,7 @@ function App() {
     const newExpense: Expense = {
       id: Date.now(),
       date: date,
-      caterogy: category,
+      category: category,
       amount: Number(amount),
       payment: payment,
       receipt: receipt,
