@@ -52,6 +52,10 @@ function App() {
     setNote("");
   }
 
+  function deleteExpense() {
+
+  }
+
 
   return (
     <>
@@ -62,10 +66,25 @@ function App() {
         </h1>
 
         <ExpenseForm
+          date={date}
+          setDate={setDate}
+          category={category}
+          setCategory={setCategory}
+          amount={amount}
+          setAmount={setAmount}
+          payment={payment}
+          setPayment={setPayment}
+          receipt={receipt}
+          setReceipt={setReceipt}
+          note={note}
+          setNote={setNote}
+
           addExpense={addExpense}
         />
 
         <ExpenseList
+          expenses={expenses}
+          deleteExpense={deleteExpense}
         />
 
       </div>
