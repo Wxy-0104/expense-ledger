@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import type { Expense } from './types/expense'
 import { getToday } from './utils/date'
 import ExpenseForm from './components/ExpenseForm'
+import ExpenseFilter from './components/ExpenseFilter'
 import ExpenseList from './components/ExpenseList'
 
 import './App.css'
@@ -23,6 +24,19 @@ function App() {
   const [payment, setPayment] = useState<string>("Cash");
   const [receipt, setReceipt] = useState<boolean>(false);
   const [note, setNote] = useState<string>("");
+
+
+  //filterState
+  const [searchText, setSearchText] = useState<string>("");
+  // const [filterDate, setFilterDate] = useState<string>("All");
+  const [filterCategory, setFilterCategory] = useState<string>("All");
+
+  //过滤数组,传给list
+  const filteredExpenses = expenses.filter(expense =>
+    expense.note.toLowerCase().includes(searchText.toLowerCase()) &&
+    (filterCategory === "All" || expense.category === filterCategory)
+  );
+
 
   const [editingId, setEditingId] = useState<number | null>(null);
 
@@ -118,8 +132,17 @@ function App() {
           saveExpense={saveExpense}
         />
 
+        <ExpenseFilter
+          searchText={searchText}
+          setSearchText={setSearchText}
+          // filterDate={filterDate}
+          // setFilterDate={setFilterDate}
+          filterCategory={filterCategory}
+          setFilterCategory={setFilterCategory}
+        />
+
         <ExpenseList
-          expenses={expenses}
+          expenses={filteredExpenses}
           deleteExpense={deleteExpense}
           startEdit={startEdit}
         />
