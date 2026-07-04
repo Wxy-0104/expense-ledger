@@ -16,6 +16,7 @@ function App() {
   })
 
   //输入
+  const [nextId, setNextId] = useState<number>(1);
   const [date, setDate] = useState<string>(getToday());
   const [category, setCategory] = useState<string>("Other");
   const [amount, setAmount] = useState<string>("");
@@ -23,15 +24,17 @@ function App() {
   const [receipt, setReceipt] = useState<boolean>(false);
   const [note, setNote] = useState<string>("");
 
+  const [editingId, setEditingId] = useState<number | null>(null);
+
   //本地存储
   useEffect(() => {
     localStorage.setItem("expenses", JSON.stringify(expenses));
   }, [expenses])
 
-  //添加
-  function addExpense() {
+  //添加 || 编辑
+  function saveExpense() {
     const newExpense: Expense = {
-      id: Date.now(),
+      id: editingId !== null ? editingId : nextId,
       date: date,
       category: category,
       amount: Number(amount),
@@ -40,10 +43,27 @@ function App() {
       note: note,
     };
 
+    //editing mode
+    if (editingId !== null) {
+      setExpenses(expenses.map(expense =>
+        expense.id === editingId ?
+          newExpense : expense));
+
+      setEditingId(null);
+      resetForm();
+      return;
+    }
+
     //添加成功
     setExpenses([...expenses, newExpense]);
 
+    setNextId(nextId + 1);
+
     //重置输入项
+    resetForm();
+  }
+
+  function resetForm() {
     setDate(getToday());
     setCategory("Other");
     setAmount("");
@@ -52,8 +72,25 @@ function App() {
     setNote("");
   }
 
-  function deleteExpense() {
+  function startEdit(id: number) {
 
+    const targetExpense = expenses.find(expense => expense.id === id);
+    if (!targetExpense) return;
+
+
+    setEditingId(id);
+    // console.log("Editingid:" + editingId);
+
+    setDate(targetExpense.date);
+    setCategory(targetExpense.category);
+    setAmount(targetExpense.amount.toString());
+    setPayment(targetExpense.payment);
+    setReceipt(targetExpense.receipt);
+    setNote(targetExpense.note);
+  }
+
+  function deleteExpense(id: number) {
+    setExpenses(expenses.filter(expense => expense.id !== id));
   }
 
 
@@ -78,13 +115,13 @@ function App() {
           setReceipt={setReceipt}
           note={note}
           setNote={setNote}
-
-          addExpense={addExpense}
+          saveExpense={saveExpense}
         />
 
         <ExpenseList
           expenses={expenses}
           deleteExpense={deleteExpense}
+          startEdit={startEdit}
         />
 
       </div>

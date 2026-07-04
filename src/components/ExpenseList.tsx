@@ -3,9 +3,10 @@ import type { Expense } from '../types/expense'
 type ExpenseListProps = {
     expenses: Expense[];
     deleteExpense: (id: number) => void;
+    startEdit: (id: number) => void;
 }
 
-function ExpenseList({ expenses, deleteExpense }: ExpenseListProps) {
+function ExpenseList({ expenses, deleteExpense, startEdit }: ExpenseListProps) {
     return (
         <div className='expense-list'>
             {
@@ -17,7 +18,8 @@ function ExpenseList({ expenses, deleteExpense }: ExpenseListProps) {
                                 <ExpenseItem
                                     key={expense.id}
                                     expense={expense}
-                                    deleteExpense={deleteExpense} />
+                                    deleteExpense={deleteExpense}
+                                    startEdit={startEdit} />
                             ))
                         }
                     </ul>)

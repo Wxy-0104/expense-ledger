@@ -11,7 +11,7 @@ type ExpenseFormProps = {
     setReceipt: (value: boolean) => void;
     note: string;
     setNote: (value: string) => void;
-    addExpense: () => void;
+    saveExpense: () => void;
 }
 
 function ExpenseForm({
@@ -27,7 +27,7 @@ function ExpenseForm({
     setReceipt,
     note,
     setNote,
-    addExpense }: ExpenseFormProps) {
+    saveExpense }: ExpenseFormProps) {
 
     return (
         <>
@@ -82,8 +82,8 @@ function ExpenseForm({
                     />
                 </div>
 
-                <button className="add-btn" onClick={addExpense}>
-                    Add
+                <button className="save-btn" onClick={saveExpense}>
+                    Save
                 </button>
             </div>
         </>
