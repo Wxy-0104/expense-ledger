@@ -1,7 +1,7 @@
 export type Expense = {
     id: number;
     date: string;
-    caterogy: string;
+    category: string;
     amount: number;
     payment: string;
     receipt: boolean;

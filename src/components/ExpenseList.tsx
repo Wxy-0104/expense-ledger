@@ -4,6 +4,7 @@ type ExpenseListProps = {
     expenses: Expense[];
     deleteExpense: (id: number) => void;
     startEdit: (id: number) => void;
+    t: Record<string, string>;
 }
 
 function ExpenseList({ expenses, deleteExpense, startEdit }: ExpenseListProps) {

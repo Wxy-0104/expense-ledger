@@ -4,6 +4,10 @@ import { getToday } from './utils/date'
 import ExpenseForm from './components/ExpenseForm'
 import ExpenseFilter from './components/ExpenseFilter'
 import ExpenseList from './components/ExpenseList'
+import LanguageSwitcher from './components/LanguageSwitcher'
+// import type { Language } from './types/language'
+import { texts } from './i18n/texts'
+
 
 import './App.css'
 
@@ -38,7 +42,13 @@ function App() {
   );
 
 
+  //编辑状态
   const [editingId, setEditingId] = useState<number | null>(null);
+
+  //多语言
+  const [language, setLanguage] = useState<"en" | "ja">("ja");
+
+  const t = texts[language];
 
   //本地存储
   useEffect(() => {
@@ -116,6 +126,11 @@ function App() {
           Expense Ledger
         </h1>
 
+        <LanguageSwitcher
+          language={language}
+          setLanguage={setLanguage}
+        />
+
         <ExpenseForm
           date={date}
           setDate={setDate}
@@ -130,6 +145,7 @@ function App() {
           note={note}
           setNote={setNote}
           saveExpense={saveExpense}
+          t={t}
         />
 
         <ExpenseFilter
@@ -139,12 +155,14 @@ function App() {
           // setFilterDate={setFilterDate}
           filterCategory={filterCategory}
           setFilterCategory={setFilterCategory}
+          t={t}
         />
 
         <ExpenseList
           expenses={filteredExpenses}
           deleteExpense={deleteExpense}
           startEdit={startEdit}
+          t={t}
         />
 
       </div>

@@ -12,6 +12,7 @@ type ExpenseFormProps = {
     note: string;
     setNote: (value: string) => void;
     saveExpense: () => void;
+    t: Record<string, string>;
 }
 
 function ExpenseForm({

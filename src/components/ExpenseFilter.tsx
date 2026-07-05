@@ -6,6 +6,7 @@ type ExpenseFilterProps = {
     // setFilterDate: (value: string | "All") => void;
     filterCategory: string | "All";
     setFilterCategory: (value: string | "All") => void;
+    t: Record<string, string>;
 }
 function ExpenseFilter({
     searchText,
