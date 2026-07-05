@@ -29,7 +29,7 @@ State 管理、型定義、LocalStorage によるデータ永続化などを実�
 - LocalStorage
 
 ## プロジェクト構成
-
+```text
 src/
 ├── components/
 │   ├── ExpenseForm.tsx
@@ -46,7 +46,7 @@ src/
 │   └── date.ts
 ├── App.tsx
 └── main.tsx
-
+```
 ## 設計について
 
 アプリケーションのメインデータとフォームの State は、
@@ -55,20 +55,22 @@ src/
 各子コンポーネントには Props を通してデータとイベント処理用の関数を渡しています。
 
 データの流れ：
-
+```text
 App
 ↓ expenses
 ExpenseList
 ↓ expense
 ExpenseItem
+```
 
 編集処理：
-
+```text
 ExpenseItem
 → startEdit(id)
 → App で対象データを取得
 → Form の State を更新
 → ExpenseForm にデータを反映
+```
 
 追加処理と編集処理では同じフォームを使用しています。
 
