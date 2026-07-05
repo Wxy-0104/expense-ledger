@@ -1,4 +1,4 @@
-import type { Language } from "./types/language";
+import type { Language } from '../types/language';
 
 export const texts = {
     en: {
@@ -11,11 +11,17 @@ export const texts = {
         note: "Note",
         searchNote: "Search by note",
         category: "Category",
+        transport: "Transport",
+        food: "Food",
+        office: "Office",
+        other: "Other",
         payment: "Payment",
+        cash: "Cash",
+        card: "Card",
         receipt: "Receipt",
         noReceipt: "No Receipt",
         noData: "No expense records",
-        allCategories: "All Categories",
+        allCategories: "All Categories"
     },
     ja: {
         title: "家計簿",
@@ -27,10 +33,16 @@ export const texts = {
         note: "メモ",
         searchNote: "メモで検索",
         category: "カテゴリー",
+        transport: "交通費",
+        food: "食費",
+        office: "事務用品",
+        other: "その他",
         payment: "支払い方法",
+        cash: "現金",
+        card: "カード",
         receipt: "領収書",
         noReceipt: "領収書なし",
         noData: "支出記録がありません",
-        allCategories: "すべてのカテゴリー",
+        allCategories: "すべてのカテゴリー"
     }
 } satisfies Record<Language, Record<string, string>>;

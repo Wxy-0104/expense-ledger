@@ -28,7 +28,9 @@ function ExpenseForm({
     setReceipt,
     note,
     setNote,
-    saveExpense }: ExpenseFormProps) {
+    saveExpense,
+    t
+}: ExpenseFormProps) {
 
     return (
         <>
@@ -44,26 +46,26 @@ function ExpenseForm({
                     <select
                         value={category}
                         onChange={(e) => setCategory(e.target.value)}>
-                        <option value="">Category</option>
-                        <option value="Transport">Transport</option>
-                        <option value="Food">Food</option>
-                        <option value="Office">Office</option>
-                        <option value="Other">Other</option>
+                        <option value="">{t.category}</option>
+                        <option value="Transport">{t.transport}</option>
+                        <option value="Food">{t.food}</option>
+                        <option value="Office">{t.office}</option>
+                        <option value="Other">{t.other}</option>
                     </select>
 
                     <input
                         type="string"
                         value={amount}
                         onChange={(e) => setAmount(e.target.value)}
-                        placeholder="Amount" />
+                        placeholder={t.amount} />
 
                     <select
                         value={payment}
                         onChange={(e) => setPayment(e.target.value)}>
-                        <option value="">Payment</option>
-                        <option value="Cash">Cash</option>
-                        <option value="Card">Card</option>
-                        <option value="Other">Other</option>
+                        <option value="">{t.payment}</option>
+                        <option value="Cash">{t.cash}</option>
+                        <option value="Card">{t.card}</option>
+                        <option value="Other">{t.other}</option>
                     </select>
 
                     <label className="receipt-toggle">
@@ -72,19 +74,19 @@ function ExpenseForm({
                             checked={receipt}
                             onChange={(e) => setReceipt(e.target.checked)}
                         />
-                        Receipt
+                        {t.receipt}
                     </label>
 
 
                     <input
                         value={note}
                         onChange={(e) => setNote(e.target.value)}
-                        placeholder="Note"
+                        placeholder={t.note}
                     />
                 </div>
 
                 <button className="save-btn" onClick={saveExpense}>
-                    Save
+                    {t.save}
                 </button>
             </div>
         </>

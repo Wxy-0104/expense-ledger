@@ -1,11 +1,11 @@
 import type { Language } from '../types/language';
 
-type laguageSwitcherProps = {
+type LanguageSwitcherProps = {
     language: Language;
     setLanguage: (value: Language) => void;
 }
 
-function LanguageSwitcher({ language, setLanguage }: laguageSwitcherProps) {
+function LanguageSwitcher({ language, setLanguage }: LanguageSwitcherProps) {
     return (
         <select
             value={language}

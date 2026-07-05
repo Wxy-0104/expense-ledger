@@ -14,13 +14,14 @@ function ExpenseFilter({
     // filterDate,
     // setFilterDate,
     filterCategory,
-    setFilterCategory }: ExpenseFilterProps) {
+    setFilterCategory,
+    t }: ExpenseFilterProps) {
     return (
         <div className="expense-fliter">
             <input
                 value={searchText}
                 onChange={(e) => setSearchText(e.target.value)}
-                placeholder="Search by note"
+                placeholder={t.searchNote}
             />
 
             {/* <select
@@ -37,11 +38,11 @@ function ExpenseFilter({
                 value={filterCategory}
                 onChange={(e) => setFilterCategory(e.target.value)}
             >
-                <option value="All">All Categories</option>
-                <option value="Transport">Transport</option>
-                <option value="Food">Food</option>
-                <option value="Office">Office</option>
-                <option value="Other">Other</option>
+                <option value="All">{t.allCategories}</option>
+                <option value="Transport">{t.transport}</option>
+                <option value="Food">{t.food}</option>
+                <option value="Office">{t.office}</option>
+                <option value="Other">{t.other}</option>
             </select>
         </div>
     )

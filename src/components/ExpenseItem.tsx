@@ -3,28 +3,29 @@ type ExpenseItemProps = {
     expense: Expense;
     deleteExpense: (id: number) => void;
     startEdit: (id: number) => void;
+    t: Record<string, string>;
 }
 
-function ExpenseItem({ expense, deleteExpense, startEdit }: ExpenseItemProps) {
+function ExpenseItem({ expense, deleteExpense, startEdit, t }: ExpenseItemProps) {
     return (
         <li className='expense-item'>
             <span>{expense.date}</span>
             <span>{expense.category}</span>
             <span>{expense.amount}円</span>
             <span>{expense.payment}</span>
-            <span>{expense.receipt ? "Receipt" : "No Receipt"}</span>
+            <span>{expense.receipt ? t.receipt : t.noReceipt}</span>
             <span>{expense.note}</span>
 
             <button
                 className='delete-btn'
                 onClick={() => { deleteExpense(expense.id) }}>
-                delete
+                {t.delete}
             </button>
 
             <button
                 className='edit-btn'
                 onClick={() => { startEdit(expense.id) }}>
-                edit
+                {t.edit}
             </button>
 
         </li>

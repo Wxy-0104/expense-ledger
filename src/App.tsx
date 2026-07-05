@@ -5,7 +5,7 @@ import ExpenseForm from './components/ExpenseForm'
 import ExpenseFilter from './components/ExpenseFilter'
 import ExpenseList from './components/ExpenseList'
 import LanguageSwitcher from './components/LanguageSwitcher'
-// import type { Language } from './types/language'
+import type { Language } from './types/language'
 import { texts } from './i18n/texts'
 
 
@@ -46,7 +46,7 @@ function App() {
   const [editingId, setEditingId] = useState<number | null>(null);
 
   //多语言
-  const [language, setLanguage] = useState<"en" | "ja">("ja");
+  const [language, setLanguage] = useState<Language>("ja");
 
   const t = texts[language];
 
@@ -123,7 +123,7 @@ function App() {
       <div className='app'>
 
         <h1 className='app-title'>
-          Expense Ledger
+          {t.title}
         </h1>
 
         <LanguageSwitcher

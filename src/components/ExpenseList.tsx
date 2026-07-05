@@ -7,12 +7,12 @@ type ExpenseListProps = {
     t: Record<string, string>;
 }
 
-function ExpenseList({ expenses, deleteExpense, startEdit }: ExpenseListProps) {
+function ExpenseList({ expenses, deleteExpense, startEdit,t }: ExpenseListProps) {
     return (
         <div className='expense-list'>
             {
                 expenses.length === 0 ?
-                    (<p className='empty-text'>NO EXPENSE</p>) :
+                    (<p className='empty-text'>{t.noExpense}</p>) :
                     (<ul className='expenseList'>
                         {
                             expenses.map(expense => (
@@ -20,7 +20,8 @@ function ExpenseList({ expenses, deleteExpense, startEdit }: ExpenseListProps) {
                                     key={expense.id}
                                     expense={expense}
                                     deleteExpense={deleteExpense}
-                                    startEdit={startEdit} />
+                                    startEdit={startEdit}
+                                    t={t} />
                             ))
                         }
                     </ul>)
