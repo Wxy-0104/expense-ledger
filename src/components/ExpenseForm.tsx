@@ -44,6 +44,7 @@ function ExpenseForm({
                     />
 
                     <select
+                        className="input-category"
                         value={category}
                         onChange={(e) => setCategory(e.target.value)}>
                         <option value="">{t.category}</option>
@@ -54,12 +55,15 @@ function ExpenseForm({
                     </select>
 
                     <input
-                        type="string"
+                        className="input-amount"
+                        type="text"
+                        inputMode="decimal"
                         value={amount}
                         onChange={(e) => setAmount(e.target.value)}
                         placeholder={t.amount} />
 
                     <select
+                        className="select-payment"
                         value={payment}
                         onChange={(e) => setPayment(e.target.value)}>
                         <option value="">{t.payment}</option>
@@ -78,7 +82,7 @@ function ExpenseForm({
                     </label>
 
 
-                    <input
+                    <input className="input-note"
                         value={note}
                         onChange={(e) => setNote(e.target.value)}
                         placeholder={t.note}

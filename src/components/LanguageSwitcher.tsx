@@ -8,6 +8,7 @@ type LanguageSwitcherProps = {
 function LanguageSwitcher({ language, setLanguage }: LanguageSwitcherProps) {
     return (
         <select
+            className='language-switcher'
             value={language}
             onChange={(e) => setLanguage(e.target.value as Language)}>
             <option value="en">English</option>

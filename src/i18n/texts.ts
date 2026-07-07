@@ -3,6 +3,7 @@ import type { Language } from '../types/language';
 export const texts = {
     en: {
         title: "Expense Ledger",
+        subtitle: "A simple ledger for everyday expenses",
         add: "Add",
         save: "Save",
         edit: "Edit",
@@ -25,6 +26,7 @@ export const texts = {
     },
     ja: {
         title: "家計簿",
+        subtitle: "毎日の支出を、シンプルに記録",
         add: "追加",
         save: "保存",
         edit: "編集",

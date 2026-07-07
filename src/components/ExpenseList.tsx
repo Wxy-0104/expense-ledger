@@ -13,7 +13,7 @@ function ExpenseList({ expenses, deleteExpense, startEdit,t }: ExpenseListProps)
             {
                 expenses.length === 0 ?
                     (<p className='empty-text'>{t.noExpense}</p>) :
-                    (<ul className='expenseList'>
+                    (<ul className='expense-list-items'>
                         {
                             expenses.map(expense => (
                                 <ExpenseItem

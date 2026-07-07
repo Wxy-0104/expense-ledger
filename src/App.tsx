@@ -122,14 +122,25 @@ function App() {
     <>
       <div className='app'>
 
-        <h1 className='app-title'>
-          {t.title}
-        </h1>
+        <header className='app-header'>
 
-        <LanguageSwitcher
-          language={language}
-          setLanguage={setLanguage}
-        />
+          <div className='title-group'>
+
+            <h1 className='app-title'>
+              {t.title}
+            </h1>
+
+            <p className='app-subtitle'>
+              {t.subtitle}
+            </p>
+          </div>
+
+
+          <LanguageSwitcher
+            language={language}
+            setLanguage={setLanguage}
+          />
+        </header>
 
         <ExpenseForm
           date={date}

@@ -16,19 +16,19 @@ function ExpenseItem({ expense, deleteExpense, startEdit, t }: ExpenseItemProps)
             <span>{expense.receipt ? t.receipt : t.noReceipt}</span>
             <span>{expense.note}</span>
 
-            <button
-                className='delete-btn'
-                onClick={() => { deleteExpense(expense.id) }}>
-                {t.delete}
-            </button>
+                <button
+                    className='edit-btn'
+                    onClick={() => { startEdit(expense.id) }}>
+                    {t.edit}
+                </button>
 
-            <button
-                className='edit-btn'
-                onClick={() => { startEdit(expense.id) }}>
-                {t.edit}
-            </button>
+                <button
+                    className='delete-btn'
+                    onClick={() => { deleteExpense(expense.id) }}>
+                    {t.delete}
+                </button>
+            </li>
 
-        </li>
     )
 }
 

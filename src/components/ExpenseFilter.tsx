@@ -17,8 +17,10 @@ function ExpenseFilter({
     setFilterCategory,
     t }: ExpenseFilterProps) {
     return (
-        <div className="expense-fliter">
+        <div className="expense-filter">
             <input
+                className="search-input"
+                type="text"
                 value={searchText}
                 onChange={(e) => setSearchText(e.target.value)}
                 placeholder={t.searchNote}
@@ -35,6 +37,7 @@ function ExpenseFilter({
             </select> */}
 
             <select
+                className="category-select"
                 value={filterCategory}
                 onChange={(e) => setFilterCategory(e.target.value)}
             >
