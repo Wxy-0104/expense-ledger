@@ -21,8 +21,8 @@ Personal expense tracking app built with pure JavaScript.
 
 ## 学習目的 / Learning Purpose
 JSのDOM操作、i18n、状態管理の基礎を固めるための練習プロジェクトです。  
-現在、React + TypeScript版への移行を学習中です。  
+現在、React + TypeScriptに再構築版も基本的実装を完了しており、コンポーネント設計やState管理を通して、Vanilla　JavaScript版との設計思想の違いを学んでいます。
 This project is for practicing DOM manipulation, i18n, and state management in JS.  
-Currently learning to refactor it into React + TypeScript.
+The React + TypeScript rebuild is now substantially complete, and I have been learning the differences in design approach through component architecture and state management. 
 
 GitHub: https://github.com/Wxy-0104/expense-ledger/tree/react
