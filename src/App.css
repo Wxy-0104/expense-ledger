@@ -279,3 +279,54 @@ body {
 .delete-btn:hover {
     background-color: #fee2e2;
 }
+
+
+/* Table */
+@media (max-width: 900px) {
+    .input-form {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.expense-item {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+
+/* Mobile */
+@media (max-width:600px) {
+    .app {
+        width: calc(100% - 24px);
+        padding: 20px 0;
+    }
+
+    .app-header {
+        align-items: flex-start;
+        gap: 16px;
+    }
+
+    .app-title {
+        font-size: 24px;
+    }
+
+    .input-form {
+        grid-template-columns: 1fr;
+    }
+
+    .expense-filter {
+        grid-template-columns: 1fr;
+    }
+
+    .category-select {
+        width: 100%;
+    }
+
+    .expense-item {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+
+    .save-btn {
+        width: 100%;
+    }
+}
