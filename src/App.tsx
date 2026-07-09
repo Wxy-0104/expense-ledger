@@ -23,9 +23,9 @@ function App() {
   //输入
   const [nextId, setNextId] = useState<number>(1);
   const [date, setDate] = useState<string>(getToday());
-  const [category, setCategory] = useState<string>("Other");
+  const [category, setCategory] = useState<string>("");
   const [amount, setAmount] = useState<string>("");
-  const [payment, setPayment] = useState<string>("Cash");
+  const [payment, setPayment] = useState<string>("");
   const [receipt, setReceipt] = useState<boolean>(false);
   const [note, setNote] = useState<string>("");
 
@@ -57,12 +57,15 @@ function App() {
 
   //添加 || 编辑
   function saveExpense() {
+
+    if (!validateForm()) return;
+
     const newExpense: Expense = {
       id: editingId !== null ? editingId : nextId,
       date: date,
-      category: category,
+      category: category || "Other",
       amount: Number(amount),
-      payment: payment,
+      payment: payment || "Cash",
       receipt: receipt,
       note: note,
     };
@@ -87,14 +90,27 @@ function App() {
     resetForm();
   }
 
+
   function resetForm() {
     setDate(getToday());
-    setCategory("Other");
+    setCategory(t.category);
     setAmount("");
-    setPayment("Cash");
+    setPayment(t.payment);
     setReceipt(false);
     setNote("");
   }
+
+  //校验函数
+  function validateForm(): boolean {
+    const amountNumber = Number(amount);
+
+    if (amount.trim() === "" || Number.isNaN(amountNumber) || amountNumber < 0) {
+      alert(t.alert);
+      return false;
+    }
+    return true;
+  }
+
 
   function startEdit(id: number) {
 
@@ -133,6 +149,7 @@ function App() {
             <p className='app-subtitle'>
               {t.subtitle}
             </p>
+
           </div>
 
 

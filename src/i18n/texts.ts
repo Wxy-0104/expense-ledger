@@ -21,8 +21,9 @@ export const texts = {
         card: "Card",
         receipt: "Receipt",
         noReceipt: "No Receipt",
-        noData: "No expense records",
-        allCategories: "All Categories"
+        noExpense: "No expense records",
+        allCategories: "All Categories",
+        alert: "Please enter a valid amount",
     },
     ja: {
         title: "家計簿",
@@ -44,7 +45,8 @@ export const texts = {
         card: "カード",
         receipt: "領収書",
         noReceipt: "領収書なし",
-        noData: "支出記録がありません",
-        allCategories: "すべてのカテゴリー"
+        noExpense: "支出記録がありません",
+        allCategories: "すべてのカテゴリー",
+        alert: "正確な金額を入力してください",
     }
 } satisfies Record<Language, Record<string, string>>;
