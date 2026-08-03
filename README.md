@@ -1,29 +1,35 @@
-# Expense Ledger (経費台帳) - Vanilla JS版
+# Expense Ledger
 
-個人経費管理アプリ（Vanilla JavaScriptで作成）。  
-Personal expense tracking app built with pure JavaScript.
+使用 Next.js、React 与 TypeScript 构建的个人经费台账。数据保存在浏览器 `localStorage` 中，不会上传到服务器。
 
-## 主な機能 / Features
-- 経費の追加・編集・削除 (CRUD)  
-- 多言語対応（英語・日本語） / Multi-language support (English / Japanese)  
-- localStorageによるデータ永続化 / LocalStorage persistence  
-- メモ検索 & カテゴリフィルター / Search by note & category filter  
-- 合計金額表示 / Total summary display
+## 功能
 
-## 技術スタック / Tech Stack
-- HTML5 + CSS3  
-- Vanilla JavaScript (ES6+)  
-- No framework (pure JS)
+- 经费新增、编辑、删除与搜索
+- 按类别筛选并统计筛选结果
+- 仪表盘、近期记录和类别分析
+- 日语、英语界面切换
+- JPY、USD、CNY 货币格式切换
+- 自动迁移旧版 `expense-ledger:v1` 本地数据
+- React 安全文本渲染，避免用户备注造成 HTML 注入
+- 响应式桌面和移动端界面
 
-## 実行方法 / How to Run
-1. このリポジトリをダウンロード  
-2. `index.html` をブラウザで開く / Open `index.html` in browser
+## 本地运行
 
-## 学習目的 / Learning Purpose
-JSのDOM操作、i18n、状態管理の基礎を固めるための練習プロジェクトです。  
-現在、React + TypeScriptに再構築版も基本的実装を完了しており、コンポーネント設計やState管理を通して、Vanilla　JavaScript版との設計思想の違いを学んでいます。
+```bash
+npm install
+npm run dev
+```
 
-This project is for practicing DOM manipulation, i18n, and state management in JS.  
-The React + TypeScript rebuild is now substantially complete, and I have been learning the differences in design approach through component architecture and state management. 
+访问 <http://localhost:3000>。
 
-GitHub: https://github.com/Wxy-0104/expense-ledger/tree/react
+## 验证
+
+```bash
+npm run lint
+npm run typecheck
+npm run build
+```
+
+## 数据说明
+
+经费记录保存在当前浏览器的 `expense-ledger:v2` 键中。清除浏览器站点数据会同时删除台账记录。

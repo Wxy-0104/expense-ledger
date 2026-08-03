@@ -1,0 +1,22 @@
+export const MESSAGES = {
+  en: {
+    common: { loading: "Loading ledger…", yes: "Yes", no: "No", edit: "Edit", delete: "Delete", new: "New record", close: "Close", cancel: "Cancel", save: "Save" },
+    sidebar: { tagline: "Personal finance", navigation: "Primary navigation", dashboard: "Dashboard", expenses: "Expenses", analytics: "Analytics", settings: "Settings", privateNote: "Your data stays in this browser." },
+    dashboard: { eyebrow: "Overview", title: "Dashboard", subtitle: "A clear view of your everyday spending.", addExpense: "+ Add expense", summary: "Expense summary", totalSpend: "Total spend", allTime: "All recorded expenses", thisMonth: "This month", records: "Records", savedLocally: "Stored on this device", recent: "Recent expenses", recentHint: "Your five latest records", viewAll: "View all", emptyTitle: "No expenses yet", emptyText: "Add your first expense to see it here." },
+    expenses: { eyebrow: "Ledger", title: "Expenses", subtitle: "Search, review and maintain every record.", add: "+ Add expense", filters: "Expense filters", search: "Search", searchPlaceholder: "Search notes, categories or payments…", allCategories: "All categories", records: "records", emptyTitle: "No matching expenses", emptyText: "Add a record or adjust your filters.", date: "Date", category: "Category", payment: "Payment", receipt: "Receipt", note: "Note", amount: "Amount", actions: "Actions", editTitle: "Edit expense", addTitle: "Add expense", notePlaceholder: "Optional note", hasReceipt: "Receipt available", validationError: "Enter a valid date and an amount of zero or more.", deleteConfirm: "Delete this expense permanently?" },
+    analytics: { eyebrow: "Insights", title: "Analytics", subtitle: "Understand where your money is going.", total: "Total analyzed", average: "Average expense", byCategory: "Spending by category", categoryHint: "Share of all recorded expenses", empty: "Add expenses to see your category breakdown." },
+    settings: { eyebrow: "Preferences", title: "Settings", subtitle: "Choose how your ledger looks and behaves.", preferences: "Display", preferencesHint: "Language and currency apply throughout the app.", language: "Language", currency: "Currency", data: "Local data", dataHint: "Expense records are stored only in this browser.", localRecords: "Saved records", clear: "Clear all records", clearConfirm: "Delete every locally stored expense? This cannot be undone." },
+    categories: { transport: "Transport", meal: "Meals", office: "Office", other: "Other" },
+    payments: { cash: "Cash", card: "Card", transfer: "Transfer" },
+  },
+  ja: {
+    common: { loading: "台帳を読み込んでいます…", yes: "あり", no: "なし", edit: "編集", delete: "削除", new: "新規登録", close: "閉じる", cancel: "キャンセル", save: "保存" },
+    sidebar: { tagline: "パーソナルファイナンス", navigation: "メインナビゲーション", dashboard: "ダッシュボード", expenses: "経費一覧", analytics: "分析", settings: "設定", privateNote: "データはこのブラウザ内に保存されます。" },
+    dashboard: { eyebrow: "概要", title: "ダッシュボード", subtitle: "日々の支出をひと目で確認できます。", addExpense: "+ 経費を追加", summary: "経費サマリー", totalSpend: "支出合計", allTime: "全期間の記録", thisMonth: "今月", records: "登録件数", savedLocally: "この端末に保存", recent: "最近の経費", recentHint: "最新5件の記録", viewAll: "すべて表示", emptyTitle: "経費はまだありません", emptyText: "最初の経費を登録すると、ここに表示されます。" },
+    expenses: { eyebrow: "台帳", title: "経費一覧", subtitle: "すべての記録を検索・確認・管理できます。", add: "+ 経費を追加", filters: "経費フィルター", search: "検索", searchPlaceholder: "メモ・カテゴリ・支払方法を検索…", allCategories: "すべてのカテゴリ", records: "件", emptyTitle: "該当する経費がありません", emptyText: "経費を追加するか、検索条件を変更してください。", date: "日付", category: "カテゴリ", payment: "支払方法", receipt: "領収書", note: "メモ", amount: "金額", actions: "操作", editTitle: "経費を編集", addTitle: "経費を追加", notePlaceholder: "任意のメモ", hasReceipt: "領収書あり", validationError: "日付と0以上の金額を正しく入力してください。", deleteConfirm: "この経費を完全に削除しますか？" },
+    analytics: { eyebrow: "インサイト", title: "分析", subtitle: "支出の傾向をカテゴリ別に確認できます。", total: "分析対象の合計", average: "1件あたりの平均", byCategory: "カテゴリ別支出", categoryHint: "全支出に占める割合", empty: "経費を追加するとカテゴリ分析が表示されます。" },
+    settings: { eyebrow: "環境設定", title: "設定", subtitle: "台帳の表示方法を変更できます。", preferences: "表示設定", preferencesHint: "言語と通貨はアプリ全体に反映されます。", language: "言語", currency: "通貨", data: "ローカルデータ", dataHint: "経費データはこのブラウザ内だけに保存されます。", localRecords: "保存件数", clear: "全データを削除", clearConfirm: "保存済みの経費をすべて削除しますか？元に戻せません。" },
+    categories: { transport: "交通", meal: "食事", office: "事務", other: "その他" },
+    payments: { cash: "現金", card: "カード", transfer: "振込" },
+  },
+} as const;
