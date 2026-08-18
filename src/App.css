@@ -146,7 +146,7 @@ body {
 
 .input-note {
     width: 100%;
-    min-width: 0;
+    min-width:0;
 }
 
 .save-btn {
@@ -230,7 +230,7 @@ body {
     padding: 48px 24px;
 
     font-size: 14px;
-    color: #191a1c;
+    color: #9ca3af;
     text-align: center;
 
     background-color: #ffffff;

@@ -11,17 +11,32 @@ import { texts } from './i18n/texts'
 
 import './App.css'
 
+const CATEGORY_VALUES = new Set(['Transport', 'Food', 'Office', 'Other'])
+const PAYMENT_VALUES = new Set(['Cash', 'Card', 'Other'])
+
+function normalizeExpense(expense: Expense): Expense {
+  return {
+    ...expense,
+    category: CATEGORY_VALUES.has(expense.category) ? expense.category : 'Other',
+    payment: PAYMENT_VALUES.has(expense.payment) ? expense.payment : 'Other',
+  }
+}
+
 function App() {
 
   //数组
   const [expenses, setExpenses] = useState<Expense[]>(() => {
     const savedExpenses = localStorage.getItem("expenses");
-    if (savedExpenses) return JSON.parse(savedExpenses) as Expense[];
+    if (savedExpenses) {
+      return (JSON.parse(savedExpenses) as Expense[]).map(normalizeExpense);
+    }
     return [];
   })
 
   //输入
-  const [nextId, setNextId] = useState<number>(1);
+  const [nextId, setNextId] = useState<number>(() =>
+    expenses.reduce((maxId, expense) => Math.max(maxId, expense.id), 0) + 1
+  );
   const [date, setDate] = useState<string>(getToday());
   const [category, setCategory] = useState<string>("");
   const [amount, setAmount] = useState<string>("");
@@ -93,9 +108,9 @@ function App() {
 
   function resetForm() {
     setDate(getToday());
-    setCategory(t.category);
+    setCategory("");
     setAmount("");
-    setPayment(t.payment);
+    setPayment("");
     setReceipt(false);
     setNote("");
   }
